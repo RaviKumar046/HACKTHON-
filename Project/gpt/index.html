@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatGPT</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="flex items-center justify-center h-screen bg-gray-100">
+  <div class="slidebarOne">
+    ChatGPT
+    <br><br>
+    <div class="two">
+      <button class="bg">New Chat</button><br>
+      <button class="bg">Library</button><br>
+      <button class="bg">Sora</button><br>
+      <button class="bg">GPTs</button><br>
+      <button class="bg">Upgrade to Plus</button>
+      <select id="model select" class="model-select">
+        <option value="gpt-3.5">GPT-3.5</option>
+        <option value="gpt-4">GPT-4</option>
+        <option value="gpt-4">GPT-4</option>
+        <option value="gpt-4o">GPT-4o</option>
+        <option value="gpt-4o-mini">GPT-4o Mini</option>
+      </select>
+    </div>
+  </div>
+  <div id="chat-box"></div>
+  <input id="user-input" type="text" placeholder="Ask Anything ?" class="search"> 
+  <button class="sb" onclick="sendMessage()">Send</button>
+  <button onclick="toggleTheme()" class="theme">Theme</button>
+  <p id="status" style="position:absolute; bottom:60px; left:270px;">Ready</p>
+ 
+  <button class="clear">Clear chat</button>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+ <script src="script.js"></script>
+</body>
+</html>
