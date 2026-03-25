@@ -3,38 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ChatGPT</title>
+  <title>Chat GPT UI</title>
+  <!--TailWind Link-->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="style.css">
 </head>
+<body class="theme-light">
+  <div class="background-glow" aria-hidden="true"></div>
+  <main class="app-shell">
+    <aside class="sidebar">
+      <h1>Chat GPT</h1>
+      <p class="subtitle">Build, ask, and explore faster.</p>
 
-<body class="flex items-center justify-center h-screen bg-gray-100">
-  <div class="slidebarOne">
-    ChatGPT
-    <br><br>
-    <div class="two">
-      <button class="bg">New Chat</button><br>
-      <button class="bg">Library</button><br>
-      <button class="bg">Sora</button><br>
-      <button class="bg">GPTs</button><br>
-      <button class="bg">Upgrade to Plus</button>
-      <select id="model select" class="model-select">
-        <option value="gpt-3.5">GPT-3.5</option>
-        <option value="gpt-4">GPT-4</option>
-        <option value="gpt-4">GPT-4</option>
-        <option value="gpt-4o">GPT-4o</option>
-        <option value="gpt-4o-mini">GPT-4o Mini</option>
-      </select>
-    </div>
-  </div>
-  <div id="chat-box"></div>
-  <input id="user-input" type="text" placeholder="Ask Anything ?" class="search"> 
-  <button class="sb" onclick="sendMessage()">Send</button>
-  <button onclick="toggleTheme()" class="theme">Theme</button>
-  <p id="status" style="position:absolute; bottom:60px; left:270px;">Ready</p>
- 
-  <button class="clear">Clear chat</button>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
- <script src="script.js"></script>
+      <nav class="menu">
+        <button id="new-chat" class="menu-btn">New Chat</button>
+        <button id="library-btn" class="menu-btn">Library</button>
+        <button id="sora-btn" class="menu-btn">Sora</button>
+        <button id="gpts-btn" class="menu-btn">GPTs</button>
+        <button id="upgrade-btn" class="menu-btn menu-btn-accent">Upgrade to Plus</button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <label for="model-select">Model</label>
+        <select id="model-select" class="model-select">
+          <option value="gpt-3.5">GPT-3.5</option>
+          <option value="gpt-4">GPT-4</option>
+          <option value="gpt-4o">GPT-4o</option>
+          <option value="gpt-4o-mini">GPT-4o Mini</option>
+        </select>
+      </div>
+    </aside>
+
+    <section class="chat-panel">
+      <header class="chat-header">
+        <div>
+          <h2>Conversation</h2>
+          <p id="status">Ready</p>
+        </div>
+        <button id="theme-toggle" class="theme-btn" type="button">Toggle Theme</button>
+      </header>
+
+      <div id="chat-box" aria-live="polite"></div>
+
+      <form id="chat-form" class="composer" autocomplete="off">
+        <label for="user-input" class="sr-only">Message</label>
+        <input id="user-input" type="text" placeholder="Ask anything...">
+        <label for="file-input" class="file-picker-btn">+ Choose file</label>
+        <input id="file-input" type="file" aria-label="Attach file" class="sr-only-file">
+        <button id="send-btn" class="send-btn" type="submit">Send</button>
+        <button id="clear-btn" class="clear-btn" type="button">Clear</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
